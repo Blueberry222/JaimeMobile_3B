@@ -25,7 +25,7 @@ export class FolderPage implements OnInit {
     let saldoTotal = 0;
     this.movimentos.forEach(item => {
       if (item.operacao == "credito"){
-        saldoTotal += item.valor;
+        saldoTotal = saldoTotal + item.valor;
       } else {
         saldoTotal -= item.valor;
       }
