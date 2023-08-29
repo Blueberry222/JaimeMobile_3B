@@ -14,8 +14,37 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+<form (ngSubmit)="adicionar()">
+
+    <ion-item>
+      <ion-input type="text" name="data" [(ngModel)]="movimento.data">Data: </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" name="descricao" [(ngModel)]="movimento.descricao">Descrição: </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" name="operacao" [(ngModel)]="movimento.operacao">Operação - Débito ou Crédito: </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" name="valor" [(ngModel)]="movimento.valor">Valor: </ion-input>
+    </ion-item>
+
+    <ion-button type="Submit" expand="full">Adicionar</ion-button>
+
+    <ion-list>
+      <ion-item *ngFor="let movimento of movimentos">
+        {{movimento.data}}
+        {{movimento.descricao}}
+        {{movimento.operacao}}
+        {{movimento.valor}}
+      </ion-item>
+    </ion-list>
+
+</form>
+
+<h2>Saldo Disponivel</h2>
+
+{{ calcularSaldo() }}
+
 </ion-content>
